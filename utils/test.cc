@@ -48,8 +48,14 @@ void testFile()
 {
     std::cout<<file_util::readFile("./makefile")<<std::endl;
 }
+void testdb()
+{
+    Json::Value root;
+    root["user_name"]="Kay";
+    root["password"]=123456;
+    
+}
 int main()
 {
-    testFile();
     return 0;
 }

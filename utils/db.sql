@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS online_gobang;
 -- 创建数据库（如果不存在）
 CREATE DATABASE IF NOT EXISTS online_gobang;
 
@@ -8,7 +9,7 @@ USE online_gobang;
 CREATE TABLE IF NOT EXISTS `user` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(32) NOT NULL UNIQUE,
-    password VARCHAR(32) NOT NULL, 
+    password VARCHAR(256) NOT NULL, 
     score INT DEFAULT 0,
     total_count INT DEFAULT 0,
     win_count INT DEFAULT 0

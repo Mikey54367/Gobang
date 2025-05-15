@@ -10,6 +10,11 @@
 #include <memory>
 #include <fstream>
 #include <stdexcept>
+#include<websocketpp/config/asio_no_tls.hpp>
+#include<websocketpp/server.hpp>
+#include<unordered_map>
+typedef websocketpp::server<websocketpp::config::asio> wsServer_t;
+#include <mutex>
 #define IFO 0
 #define DEB 1
 #define ERR 2
@@ -55,12 +60,16 @@ public:
     }
     static bool mysql_exec(MYSQL* mysql,const std::string& command)
     {
+        if(mysql==nullptr)
+        {
+            ELOG("Mysql is nullptr");
+        }
         int ret=mysql_query(mysql,command.c_str());
         if(ret!=0)
         {
             ELOG("%s",command.c_str());
             ELOG("mysql query failed: %s",mysql_error(mysql));
-            mysql_close(mysql);
+            //mysql_close(mysql);
             return false;
         }
         return true;
