@@ -9,7 +9,7 @@ void testdb()
     //Json::Value root;
     //root["user_name"]="Kay1";
     //root["password"]="123456";
-    std::string password("dziuGaaSoen697522");
+    std::string password("");
     user_table usb(IP,USR_NAME,password,DBNAME);
     //usb.insert(root);
     //usb.login("Kay1","1234656",root);
